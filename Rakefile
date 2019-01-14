@@ -10,6 +10,7 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec)
 
+load 'tasks/hydra_derivatives_spec.rake'
 
 desc 'Spin up hydra-jetty and run specs'
 task :ci => ['jetty:unzip'] do

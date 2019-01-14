@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Transcoder" do
   before(:all) do
+    Hydra::Derivatives.libreoffice_path = '/usr/lib/libreoffice/program/soffice'
     class ContentDatastream < ActiveFedora::Datastream
       include Hydra::Derivatives::ExtractMetadata
     end
@@ -28,11 +29,11 @@ describe "Transcoder" do
         when 'application/vnd.ms-powerpoint'
           obj.transform_datastream :content, { preservation: { format: 'pptx'}, access: { format: 'pdf' }, thumbnail: { format: 'jpg' } }, processor: 'document'
         when 'text/rtf'
-          obj.transform_datastream :content, { preservation: { format: 'odf' }, access: { format: 'pdf' }, thumbnail: { format: 'jpg' } }, processor: 'document'
+          obj.transform_datastream :content, { preservation: { format: 'odt' }, access: { format: 'pdf' }, thumbnail: { format: 'jpg' } }, processor: 'document'
         when 'application/msword'
           obj.transform_datastream :content, { access: { format: 'pdf' }, preservation: { format: 'docx' }, thumbnail: { format: 'jpg' } }, processor: 'document'
         when 'application/vnd.ms-excel'
-          obj.transform_datastream :content, { access: { format: 'pdf' }, preservation: { format: 'xslx' }, thumbnail: { format: 'jpg' } }, processor: 'document'
+          obj.transform_datastream :content, { access: { format: 'pdf' }, preservation: { format: 'xlsx' }, thumbnail: { format: 'jpg' } }, processor: 'document'
         when 'image/tiff'
           obj.transform_datastream :content, {
             resized: { recipe: :default, resize: "600x600>", datastream: 'resized' },

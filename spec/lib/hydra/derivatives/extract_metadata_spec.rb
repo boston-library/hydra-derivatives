@@ -16,6 +16,8 @@ module Hydra::Derivatives
       end
     }
     let(:initialization_options) { {content: 'abc', mime_type: 'text/plain'} }
+    before(:all){ Hydra::Derivatives.config.fits_path = "#{ENV['HOME']}/tools/FIts/fits.sh" }
+    after(:all){ Hydra::Derivatives.reset_config! }
     subject { class_with_metadata_extraction.new(initialization_options) }
 
     context '#extract_metadata' do

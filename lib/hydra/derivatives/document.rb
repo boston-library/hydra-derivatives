@@ -33,11 +33,11 @@ module Hydra
         case format
         when 'pdf'
           'application/pdf'
-        when 'odf'
+        when 'odt'
           'application/vnd.oasis.opendocument.text'
         when 'docx'
           'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        when 'xslx'
+        when 'xlsx'
           'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         when 'pptx'
           'application/vnd.openxmlformats-officedocument.presentationml.presentation'

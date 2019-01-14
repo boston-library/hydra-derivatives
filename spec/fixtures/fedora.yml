@@ -1,0 +1,8 @@
+default: &default
+  user: fedoraAdmin
+  password: fedoraAdmin
+  url: http://localhost:8983/fedora-test
+development:
+  <<: *default
+test:
+  <<: *default  

@@ -31,14 +31,14 @@ module Hydra
         "320x240"
       end
 
-      def audio_attributes 
+      def audio_attributes
         "-ac 2 -ab 96k -ar 44100"
       end
 
       def codecs(format)
         case format
         when 'mp4'
-          "-vcodec libx264 -acodec libfdk_aac"
+          "-vcodec libx264 -acodec aac" #Note if we ever need to use the libfdk_aac encoder we need to compile ffmpeg from source
         when 'webm'
           "-vcodec libvpx -acodec libvorbis"
         when "mkv"
@@ -56,5 +56,3 @@ module Hydra
     end
   end
 end
-
-
